@@ -451,7 +451,7 @@ table.at tr:hover td{background:#f8fbfa}
   <div class="form-grid four">
     <div class="form-group span2"><label class="form-label">Insured Name</label><input class="form-input" id="f-insured-name"/></div>
     <div class="form-group"><label class="form-label">Mobile</label><input class="form-input" id="f-insured-mobile"/></div>
-    <div class="form-group"><label class="form-label">HPA / Finance With</label><input class="form-input" id="f-hpa" placeholder="NIL"/></div>
+    <div class="form-group"><label class="form-label">Financier Name & Address</label><input class="form-input" id="f-hpa" placeholder="NIL"/></div>
     <div class="form-group span4"><label class="form-label">Address</label><input class="form-input" id="f-insured-addr"/></div>
   </div>
 </div></div>
@@ -2620,7 +2620,7 @@ function buildUIICFinalHTML() {
 <tr><td style="${tdl}width:25%;">Claimant Name</td><td style="${tdb}width:25%;">${gv('f-insured-name')}</td><td style="${tdl}width:25%;">Place of Accident / Theft</td><td style="${td}">${gv('f-poa')}</td></tr>
 <tr><td style="${tdl}">Loss Date</td><td style="${td}">${fd(gv('f-doa'))}</td><td style="${tdl}">Insured Declared Value</td><td style="${tdb}">${fa(gv('f-idv'))}</td></tr>
 <tr><td style="${tdl}">Policy Issuing Office Code</td><td style="${td}">${gv('f-policy-office')}</td><td style="${tdl}">Pincode of place of accident</td><td style="${td}">${gv('f-accident-pincode')}</td></tr>
-<tr><td style="${tdl}">Policy issuing office address</td><td style="${td}" colspan="3">${gv('f-appt-office')}</td></tr>
+<tr><td style="${tdl}">Policy issuing office address</td><td style="${td}" colspan="3">${gv('f-policy-office')}</td></tr>
 </table>
 <table style="${ts}"><tr><td style="${sec}width:50%;">INSURED / CLAIMANT DETAILS</td><td style="${sec}">SPOT SURVEY DETAILS</td></tr>
 <tr><td style="${td}vertical-align:top;"><table style="width:100%;border-collapse:collapse;font-size:7pt;">
@@ -2662,7 +2662,7 @@ function buildUIICFinalHTML() {
 <table style="${ts}"><tr><td style="${tdl}width:25%;">Reinspection appointment date</td><td style="${td}width:25%;">${fd(gv('f-ri-appt-date'))}</td><td style="${tdl}width:25%;">Repair Authorisation Date</td><td style="${td}">${fd(gv('f-repair-auth-date'))}</td></tr>
 <tr><td style="${tdl}">Est. Repair Completion Date</td><td style="${td}">${fd(gv('f-est-repair-date'))}</td><td style="${tdl}">Actual Repair Completion Date</td><td style="${td}">${fd(gv('f-actual-repair-date'))}</td></tr>
 <tr><td style="${tdl}">Workshop Final Invoice Date</td><td style="${td}">${fd(gv('f-bill-invoice-date'))}</td><td style="${tdl}">Bill Check finalisation date</td><td style="${td}">${fd(gv('f-bill-check-date'))}</td></tr>
-<tr><td style="${tdl}">Repairs as per assessment</td><td style="${tdb}">${gv('f-repairs-as-assessed')||'YES'}</td><td style="${tdl}">Remarks</td><td style="${td}font-size:7pt;">${gv('f-surveyor-remarks')||''}</td></tr></table>
+<tr><td style="${tdl}">Repairs as per assessment</td><td style="${tdb}">${gv('f-repairs-as-assessed')||'YES'}</td><td style="${tdl}">Reinspection Remarks</td><td style="${td}font-size:7pt;">${gv('ri-observations')||''}</td></tr></table>
 <div style="font-size:7.5pt;margin-top:4px;"><b>SURVEYOR REMARKS</b><br/>${gv('f-surveyor-remarks')||'The damages sustained by the vehicle were concurrent with the cause and nature of the accident.'}</div>`;
 
   // ── PAGE 2: Document Verification (3-column: OBTAINED / VERIFIED / DETAILS) ──
@@ -2677,7 +2677,7 @@ function buildUIICFinalHTML() {
 <tr><td style="${td}"><span style="color:#333;">Date of registration</span> ${fd(gv('f-reg-date'))}</td></tr>
 <tr><td style="${td}"><span style="color:#333;">Registering Authority</span> ${gv('f-dl-auth')||''}</td></tr>
 <tr><td style="${td}"><span style="color:#333;">Registration valid up to</span></td></tr>
-<tr><td style="${td}"><span style="color:#333;">RC endorsement on financier interest</span> ${gv('f-hpa')||'NIL'}</td></tr>
+<tr><td style="${td}"><span style="color:#333;">RC endorsement on financier interest</span> ${gv('f-hpa') ? 'YES' : 'NO'}</td></tr>
 <tr><td style="${tdb}" rowspan="8">Driving Licence</td><td style="${td}text-align:center;" rowspan="8">${gv('f-doc-dl-obtained')||'YES'}</td><td style="${td}text-align:center;" rowspan="8"></td><td style="${td}"><span style="color:#333;">Name of Driving Licence Holder</span> ${gv('f-driver-name')}</td></tr>
 <tr><td style="${td}"><span style="color:#333;">Driving Licence Number</span> ${gv('f-mdl')}</td></tr>
 <tr><td style="${td}"><span style="color:#333;">Licence Type</span> ${gv('f-dl-type')}</td></tr>
